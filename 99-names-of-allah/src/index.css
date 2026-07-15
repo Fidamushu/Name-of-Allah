@@ -7,11 +7,11 @@
   --secondary-color: #FFB6D5;
   --text-color: #ffffff;
   --text-muted: #aaaaaa;
-  
+
   --glass-bg: rgba(21, 21, 21, 0.6);
   --glass-border: rgba(255, 79, 163, 0.2);
   --neon-glow: 0 0 15px rgba(255, 79, 163, 0.5);
-  
+
   --font-english: 'Poppins', sans-serif;
   --font-arabic: 'Amiri', serif;
 }
@@ -29,6 +29,14 @@ body {
   color: var(--text-color);
   overflow-x: hidden;
   position: relative;
+  /* Better mobile touch experience */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent layout shift on mobile */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Background Effects */

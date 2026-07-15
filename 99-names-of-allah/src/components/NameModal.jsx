@@ -26,47 +26,69 @@ const NameModal = ({ name, onClose }) => {
         console.log('Error sharing', err);
       }
     } else {
-      alert('Sharing not supported on this browser context.');
+      copyToClipboard();
     }
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    // Backdrop — clicking outside closes the modal
+    <div
+      className="modal-backdrop"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Details for ${name.transliteration}`}
+    >
+      {/* Modal Box — stop click from closing when clicking inside */}
       <motion.div
-        className="modal-content glass-panel"
-        initial={{ opacity: 0, scale: 0.8, y: 30 }}
+        className="modal-content"
+        initial={{ opacity: 0, scale: 0.8, y: 40 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.8, y: 30 }}
-        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        exit={{ opacity: 0, scale: 0.85, y: 40 }}
+        transition={{ type: 'spring', damping: 22, stiffness: 280 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose}>
-          <FiX />
+        {/* Close button — large touch target for mobile */}
+        <button
+          className="modal-close"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          aria-label="Close"
+        >
+          <FiX size={20} />
         </button>
 
+        {/* Header */}
         <div className="modal-header">
-          <div className="modal-number">{name.id}</div>
+          <span className="modal-number">#{name.id}</span>
           <h2 className="modal-arabic arabic-text">{name.arabic}</h2>
           <h3 className="modal-trans">{name.transliteration}</h3>
           <p className="modal-meaning">{name.meaning}</p>
         </div>
 
+        {/* Body */}
         <div className="modal-body">
           <p className="modal-desc">{name.description}</p>
           {name.reference && (
-            <p className="modal-ref">Reference: {name.reference}</p>
+            <p className="modal-ref">📖 {name.reference}</p>
           )}
         </div>
 
+        {/* Action Buttons */}
         <div className="modal-actions">
-          <button className="action-btn" onClick={playAudio} title="Play Audio">
-            <FiPlay /> <span>Listen</span>
+          <button className="action-btn" onClick={playAudio} aria-label="Play audio">
+            <FiPlay />
+            <span>Listen</span>
           </button>
-          <button className="action-btn" onClick={copyToClipboard} title="Copy">
-            <FiCopy /> <span>Copy</span>
+          <button className="action-btn" onClick={copyToClipboard} aria-label="Copy name">
+            <FiCopy />
+            <span>Copy</span>
           </button>
-          <button className="action-btn" onClick={shareName} title="Share">
-            <FiShare2 /> <span>Share</span>
+          <button className="action-btn" onClick={shareName} aria-label="Share name">
+            <FiShare2 />
+            <span>Share</span>
           </button>
         </div>
       </motion.div>

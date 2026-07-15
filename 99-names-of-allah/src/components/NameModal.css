@@ -1,111 +1,145 @@
+/* ============= MODAL ============= */
 .modal-backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    padding: 20px;
-    backdrop-filter: blur(5px);
+    padding: 16px;
+    /* Make sure touches work on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-content {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
-    padding: 40px;
     position: relative;
-    border: 1px solid var(--primary-color) !important;
-    box-shadow: 0 0 30px rgba(255, 79, 163, 0.2);
-    background: linear-gradient(135deg, rgba(21, 21, 21, 0.95), rgba(9, 9, 9, 0.98)) !important;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 22px;
+    padding: 36px 28px 28px;
+    background: linear-gradient(135deg, rgba(21, 21, 21, 0.97), rgba(9, 9, 9, 0.99));
+    border: 1px solid rgba(255, 79, 163, 0.4);
+    box-shadow: 0 0 40px rgba(255, 79, 163, 0.15), 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
+/* Custom scrollbar inside modal */
+.modal-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* ---- Close Button ---- */
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    color: var(--text-muted);
-    font-size: 1.5rem;
-    transition: all 0.3s;
-    background: rgba(255, 255, 255, 0.05);
+    top: 14px;
+    right: 14px;
+    /* Large touch-friendly size for mobile */
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    /* Ensure it sits above everything */
+    z-index: 10;
 }
 
-.modal-close:hover {
-    color: var(--primary-color);
-    background: rgba(255, 79, 163, 0.1);
+.modal-close:hover,
+.modal-close:focus {
+    background: rgba(255, 79, 163, 0.2);
+    border-color: var(--primary-color);
+    color: #fff;
     transform: rotate(90deg);
 }
 
+.modal-close:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
+/* ---- Header ---- */
 .modal-header {
     text-align: center;
-    margin-bottom: 30px;
-    position: relative;
+    margin-bottom: 24px;
 }
 
 .modal-number {
-    position: absolute;
-    top: -20px;
-    left: 0;
-    font-size: 3rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.05);
-    z-index: 0;
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    background: rgba(255, 79, 163, 0.1);
+    border: 1px solid rgba(255, 79, 163, 0.3);
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .modal-arabic {
     font-size: 3.5rem;
-    margin-bottom: 10px;
     color: var(--secondary-color);
-    text-shadow: var(--neon-glow);
-    position: relative;
-    z-index: 1;
+    text-shadow: 0 0 20px rgba(255, 79, 163, 0.5);
+    margin-bottom: 8px;
+    line-height: 1.3;
 }
 
 .modal-trans {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #fff;
-    margin-bottom: 5px;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .modal-meaning {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: var(--primary-color);
     font-weight: 500;
 }
 
+/* ---- Body ---- */
 .modal-body {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .modal-desc {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .modal-ref {
     text-align: center;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
     font-style: italic;
 }
 
+/* ---- Action Buttons ---- */
 .modal-actions {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .action-btn {
@@ -113,31 +147,52 @@
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 50px;
     background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.25s ease;
+    /* Good touch target */
+    min-height: 44px;
 }
 
 .action-btn:hover {
     background: var(--primary-color);
     border-color: var(--primary-color);
-    box-shadow: var(--neon-glow);
+    color: #fff;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 79, 163, 0.4);
 }
 
+.action-btn:active {
+    transform: translateY(0);
+}
+
+/* ---- Mobile ---- */
 @media (max-width: 480px) {
     .modal-content {
-        padding: 30px 20px;
+        padding: 28px 18px 22px;
+        border-radius: 18px;
+        max-height: 80vh;
     }
 
     .modal-arabic {
         font-size: 2.8rem;
     }
 
+    .modal-trans {
+        font-size: 1.2rem;
+    }
+
     .action-btn span {
         display: none;
+    }
+
+    .action-btn {
+        padding: 10px 16px;
     }
 }
