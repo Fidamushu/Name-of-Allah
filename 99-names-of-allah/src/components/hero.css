@@ -1,0 +1,122 @@
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.hero-glow-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+}
+
+.hero-glow-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--primary-color);
+    background: transparent;
+    box-shadow: 0 0 50px rgba(255, 79, 163, 0.6), inset 0 0 50px rgba(255, 79, 163, 0.4);
+}
+
+.bismillah {
+    font-size: 6rem;
+    color: var(--secondary-color);
+    z-index: 3;
+    position: relative;
+    white-space: nowrap;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--primary-color), #ff2a85);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(255, 79, 163, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+.explore-btn:hover {
+    box-shadow: 0 15px 25px rgba(255, 79, 163, 0.5);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.scroll-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: var(--neon-glow);
+}
+
+@media (max-width: 768px) {
+    .hero-glow-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .bismillah {
+        font-size: 4rem;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+}

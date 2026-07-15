@@ -1,0 +1,100 @@
+.about-section {
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.about-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+.about-card {
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.about-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: var(--primary-color);
+    filter: blur(100px);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.about-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to right, #fff, var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quran-quote {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.arabic-quote {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    line-height: 1.5;
+}
+
+.english-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.reference {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.about-text {
+    position: relative;
+    z-index: 1;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .about-card {
+        padding: 30px 20px;
+    }
+
+    .arabic-quote {
+        font-size: 1.8rem;
+    }
+
+    .english-quote {
+        font-size: 1.1rem;
+    }
+}

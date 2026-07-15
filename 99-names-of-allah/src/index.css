@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #090909;
+  --card-bg: #151515;
+  --primary-color: #FF4FA3;
+  --secondary-color: #FFB6D5;
+  --text-color: #ffffff;
+  --text-muted: #aaaaaa;
+  
+  --glass-bg: rgba(21, 21, 21, 0.6);
+  --glass-border: rgba(255, 79, 163, 0.2);
+  --neon-glow: 0 0 15px rgba(255, 79, 163, 0.5);
+  
+  --font-english: 'Poppins', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-english);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Effects */
+.bg-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.15;
+}
+
+.blur-circle-1 {
+  width: 600px;
+  height: 600px;
+  background-color: var(--primary-color);
+  top: -100px;
+  left: -100px;
+}
+
+.blur-circle-2 {
+  width: 500px;
+  height: 500px;
+  background-color: var(--secondary-color);
+  bottom: -150px;
+  right: -50px;
+}
+
+.blur-circle-3 {
+  width: 400px;
+  height: 400px;
+  background-color: var(--primary-color);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.arabic-text {
+  font-family: var(--font-arabic);
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}

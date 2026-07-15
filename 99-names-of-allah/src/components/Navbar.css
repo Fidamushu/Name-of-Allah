@@ -1,0 +1,124 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+.nav-scrolled {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-shadow: var(--neon-glow);
+}
+
+.nav-links-desktop {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    box-shadow: var(--neon-glow);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-icon-link:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.nav-mobile-toggle {
+    display: none;
+}
+
+.nav-mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.mobile-nav-link {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(255, 79, 163, 0.1);
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .nav-links-desktop {
+        display: none;
+    }
+
+    .nav-mobile-toggle {
+        display: block;
+    }
+}
