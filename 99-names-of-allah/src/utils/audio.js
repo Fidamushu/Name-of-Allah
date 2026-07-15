@@ -1,6 +1,14 @@
+let currentAudio = null;
+
 export const playArabicAudio = (text, id) => {
-    const audio = new Audio(`/audio/${id}.mp3`);
-    audio.play().catch(e => {
+    // Stop any currently playing audio so they don't overlap
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    currentAudio = new Audio(`/audio/${id}.mp3`);
+    currentAudio.play().catch(e => {
         console.warn("Local audio failed or missing:", e);
 
         // Final fallback: native speechSynthesis

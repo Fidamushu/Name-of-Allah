@@ -5,8 +5,6 @@ import SearchBar from "../components/SearchBar";
 import NameGrid from "../components/NameGrid";
 import Footer from "../components/Footer";
 import About from "../components/About";
-import Contact from "../components/Contact";
-
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -37,8 +35,6 @@ function Home() {
           <NameGrid searchTerm={searchTerm} />
         </div>
       </section>
-
-      <Contact />
       <Footer />
     </>
   );

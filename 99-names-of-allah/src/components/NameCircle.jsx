@@ -4,13 +4,14 @@ import './NameCircle.css';
 import { playArabicAudio } from '../utils/audio';
 
 const NameCircle = ({ name, index, onClick }) => {
-  const handleMouseEnter = () => {
-    playArabicAudio(name.arabic, name.id);
-  };
+  const playSound = () => playArabicAudio(name.arabic, name.id);
 
   const handleClick = (e) => {
-    // Stop propagation so it doesn't accidentally trigger a double click or parent click
     e.stopPropagation();
+    // Play on mobile since they only have clicks/taps
+    if (!window.matchMedia('(hover: hover)').matches) {
+      playSound();
+    }
     onClick();
   };
 
@@ -25,7 +26,11 @@ const NameCircle = ({ name, index, onClick }) => {
       whileTap={{ scale: 0.95 }}
       className="name-circle-wrapper"
       onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={() => {
+        if (window.matchMedia('(hover: hover)').matches) {
+          playSound();
+        }
+      }}
     >
       <div className="name-circle glass-panel">
         <div className="name-number">{name.id}</div>
